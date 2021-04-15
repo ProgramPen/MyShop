@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quchaoqun.workbeach.mapper.ProductMapper">
+
+    <resultMap id="productMap" type="com.quchaoqun.workbeach.domain.Product">
+        <id column="p_id" property="pid"/>
+        <result column="t_id" property="tid"/>
+        <result column="p_name" property="name"/>
+        <result column="p_time" property="time"/>
+        <result column="p_image" property="image"/>
+        <result column="p_price" property="price"/>
+        <result column="p_state" property="state"/>
+        <result column="p_info" property="info"/>
+    </resultMap>
+
+    <select id="getGoodsList" resultMap="productMap">
+        select * from product
+    </select>
+    <select id="findBytId" resultMap="productMap">
+        select p_id,t_id,p_name,p_time,p_image,p_price,p_state from product where t_id=#{tId}
+        limit #{currentPage},8
+    </select>
+
+    <select id="findByName" resultMap="productMap">
+        select p_id,t_id,p_name,p_time,p_image,p_price,p_state from product where p_name=#{pname}
+        limit #{currentPage},8
+    </select>
+
+    <select id="fuzzyFindByName" resultType="java.lang.String">
+        select p_name from product where p_name like "%"#{pname}"%"
+    </select>
+
+    <select id="checkByName" resultType="int">
+        select count(*) from product where p_name = #{pname}
+    </select>
+
+    <select id="totalBytId" resultType="int">
+        select count(*) from product where t_id=#{tId}
+    </select>
+
+    <select id="totalByName" resultType="int">
+        select count(*) from product where p_name=#{pname}
+    </select>
+
+    <select id="findDetailByPid" resultMap="productMap">
+        select * from product where p_id=#{pid}
+    </select>
+
+    <insert id="addGoods">
+        insert into product(t_id,p_name,p_time,p_image,p_price,p_state,p_info)
+        values (#{tid},#{name},#{time},#{image},#{price},#{state},#{info})
+    </insert>
+
+</mapper>

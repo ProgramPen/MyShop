@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quchaoqun.workbeach.mapper.ProductTypeMapper">
+
+    <resultMap id="proTypeMap" type="com.quchaoqun.workbeach.domain.ProductType">
+        <id column="t_id" property="tid"/>
+        <result column="t_name" property="tname"/>
+        <result column="t_info" property="tinfo"/>
+    </resultMap>
+    <select id="findAll" resultMap="proTypeMap">
+        select t_id,t_name,t_info from protype
+    </select>
+
+
+</mapper>

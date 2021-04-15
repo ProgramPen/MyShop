@@ -1,0 +1,160 @@
+<!--将当前HTML文件变成thymeleaf模板，使之可以接收后端信息-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/login21.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <title>小米商城首页</title>
+</head>
+<style>
+    .b1{
+        color: white;
+        font: 20px 'Microsoft YaHei', '微软雅黑';
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    .x1{
+        color: white;
+        font-size:15px;
+        margin-top:20px;
+        margin-left: 30px;
+    }
+    .s1{
+        width: 100px;
+        height: 80px;
+        margin-top:20px;
+        margin-left: 50px;
+    }
+    .s2{
+        width: 100px;
+        height: 80px;
+        margin-top:20px;
+        margin-left: 300px;
+    }
+    .s3{
+        color: white;
+        font-size:15px;
+        margin-top:20px;
+        margin-left: 10px;
+    }
+</style>
+
+
+<body>
+<!--网站头部内容-->
+<div id="top" style="height: 80px;background-color:#4f4f4f;">
+    <div id="topdiv">
+        <span class="col-xg-3">
+
+            <img src="image/book.png" width="80px" height="80px" />
+            <span class="x1">|</span>
+            <a class="b1" href="" >在线考试</a>
+            <a href="" >问题反馈</a>
+        </span>
+        <span class="s1 col-xg-2">
+            <a href="" class="b1" style="align-items: center;" >首页</a>
+        </span>
+        <span class="s1 col-xg-2">
+            <a href="" class="b1" style="align-items: center;" >直播课堂</a>
+        </span>
+        <span class="s1 col-xg-2">
+            <a href="" class="b1" style="align-items: center;" >手机App</a>
+        </span>
+         <span class="s2 col-xg-3">
+             <span ><a href="" class="s3">登录</a></span>
+             <span class="s3">|</span>
+             <span ><a class="s3" href="">注册</a></span>
+             <span><a class="s3" href="">个人中心</a></span>
+         </span>
+        <!--<span class="s2 col-xg-3">
+            <a href="" class="s3">注销</a>
+            <a class="s3" href="">个人中心</a>
+        </span>-->
+    </div>
+
+</div>
+<!--网站中间内容开始-->
+<div id="second" style="line-height:25px;margin-top: 80px;">
+    <span style="font-size: 40px;line-height: 90px;color: #333;">试题测试专家</span>
+    <span style="font-size: 20px;line-height: 50px;color: #999;display: block;text-align: center;padding-bottom: 50px">精准的智能测评系统，全仿真界面</span>
+</div>
+<div id="third">
+    <span id="fif_text">学科类型名单</span>
+</div>
+<div id="sixth">
+   <span style="border-top:#008080 1px solid;background: url('image/zhengzhi.png');">
+        <a href="" >
+            <li class="glyphicon glyphicon-book"></li>
+        </a>
+        <a href="" style="font-size: 20px;color: whitesmoke;margin-top: 10px;position: relative;">政治</a>
+    </span>
+
+    <span style="border-top:#008080 1px solid;background: url('image/english.png');">
+        <a href="">
+            <li class="glyphicon glyphicon-book"></li>
+        </a>
+        <a href="" >英语一</a>
+    </span>
+    <span style="border-top:#008080 1px solid;background: url('image/english2.png');">
+        <a href="">
+            <li class="glyphicon glyphicon-book"></li>
+        </a>
+        <a href="" >英语二</a>
+    </span>
+    <span style="border-top:#008080 1px solid;background: url('image/english3.png');">
+        <a href="" >
+            <li class="glyphicon glyphicon-book"></li>
+        </a>
+        <a href="" >数学一</a>
+    </span>
+    <span style="border-top:#ff6709 1px solid;background: url('image/math1.png');">
+        <a href="" >
+            <li class="glyphicon glyphicon-book"></li>
+        </a>
+        <a href="" >数学二</a>
+    </span>
+    <span style="border-top:#ff6709 1px solid;background: url('image/math2.png');">
+        <a href="" >
+            <li class="glyphicon glyphicon-book"></li>
+        </a>
+        <a href="" >数学三</a>
+    </span>
+
+</div>
+<div id="seventh" style="margin-top: 80px">
+    <span style="font-size: 40px;line-height:20px;color: #333;width: 1200px;height: 216px">多方位在线智能评测</span><br>
+    <div style="padding-top: 40px;overflow: hidden;padding-bottom: 40px;margin-left: 100px">
+
+        <div class="spe-li fl col-sm-3" style="width: 284px;float: left;display: block;margin-right: 21px;margin-left: 30px;margin-top: 30px;">
+            <span class="spe-li-tit " style="height: 56px;font-size: 22px;display: block;text-align: center;line-height: 56px;color: #fff;width: 100%;background: #5ecef1;">海量题库</span><br>
+            <p class="spe-li-p" style="padding: 20px 12px;font-size: 18px;color: #666;line-height: 30px;display: block;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;margin-top: 0px">
+                知识考点全面覆盖，专项练习配合历年真题，优质答案精析，助您扫清知识盲点。</p>
+        </div>
+        <div class="spe-li fl col-sm-3" style="width: 284px;float: left;display: block;margin-right: 21px;margin-left: 30px;margin-top: 30px;">
+            <span class="spe-li-tit " style="height: 56px;font-size: 22px;display: block;text-align: center;line-height: 56px;color: #fff;width: 100%;background: #5ecef1;">智能考试</span><br>
+            <p class="spe-li-p" style="padding: 20px 12px;font-size: 18px;color: #666;line-height: 30px;display: block;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;margin-top: 0px">
+                告别纸质化考试，系统自动计时，自由保存测试进度，交卷后成绩即刻得知，智能新式考试体验。</p>
+        </div>
+        <div class="spe-li fl col-sm-3" style="width: 284px;float: left;display: block;margin-right: 21px;margin-left: 30px;margin-top: 30px;">
+            <span class="spe-li-tit " style="height: 56px;font-size: 22px;display: block;text-align: center;line-height: 56px;color: #fff;width: 100%;background: #5ecef1;">轻松刷题</span><br>
+            <p class="spe-li-p" style="padding: 20px 12px;font-size: 18px;color: #666;line-height: 30px;display: block;margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;margin-top: 0px">
+                系统简单易操作，专注答题、高效复习、专项测试、随学随练，助您轻松备考无压力。</p>
+        </div>
+    </div>
+</div>
+<div>
+
+</div>
+<!-- 底部 -->
+<div style="margin-top: 400px">
+    <footer>
+        <div class="copyright">简体 | 繁体 | English | 常见问题</div>
+        <div class="copyright">xx公司版权所有-京ICP备100xxxxx-<img src="./image/ghs.png" alt="">京公网安备11010802020xxx号-京ICP证1105xx号</div>
+
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quchaoqun.shoppingcart.mapper.CartMapper">
+    <resultMap id="cartMapper" type="com.quchaoqun.shoppingcart.domain.Cart">
+        <id column="c_id" property="cid"/>
+        <result column="u_id" property="uid"/>
+        <result column="p_id" property="pid"/>
+        <result column="c_count" property="cCount"/>
+        <result column="c_num" property="cNum"/>
+    </resultMap>
+
+    <select id="selectCart" resultType="int">
+        select count(*) from cart where u_id=#{uid} and p_id=#{pid}
+    </select>
+
+    <update id="updateCart">
+        update cart set c_num=c_num+1,c_count=c_count+#{price} where u_id=#{uid} and p_id=#{pid}
+    </update>
+    <insert id="addCart">
+        insert into cart(u_id,p_id,c_count,c_num) values(#{uid},#{pid},#{price},1)
+    </insert>
+
+    <select id="selectCartByUid" resultType="com.quchaoqun.shoppingcart.vo.CartsVo">
+        select c.c_id as cid,c.u_id as uid,c.p_id as pid,c.c_count as cCount,c.c_num as cnum,p.p_name as pname,p.p_price as price
+        from cart c
+        join product p
+        on c.p_id = p.p_id
+        where c.u_id = #{uid}
+    </select>
+
+    <update id="update">
+        update cart set c_count=c_count-(#{price}),c_num=#{cnum} where u_id=#{uid} and p_id=#{pid}
+    </update>
+
+    <delete id="delete">
+        delete from cart where c_id=#{cid}
+    </delete>
+
+    <delete id="clearByUid">
+        delete from cart where u_id=#{uid}
+    </delete>
+
+</mapper>

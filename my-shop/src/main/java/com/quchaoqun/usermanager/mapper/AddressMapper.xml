@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quchaoqun.usermanager.mapper.AddressMapper">
+    <resultMap id="addressMap" type="com.quchaoqun.usermanager.domain.Address">
+        <id column="a_id" property="aid"/>
+        <result column="u_id" property="uid"/>
+        <result column="a_name" property="name"/>
+        <result column="a_phone" property="phone"/>
+        <result column="a_detail" property="detail"/>
+        <result column="a_state" property="state"/>
+    </resultMap>
+    <select id="selectAddress" resultMap="addressMap">
+        select * from address where u_id=#{uid}
+    </select>
+
+    <update id="updateAddress">
+        update address set a_name=#{aname},a_phone=#{aphone},a_detail=#{adetail}
+        where a_id = #{aid}
+    </update>
+
+    <delete id="deleteAddress">
+        delete from address where a_id=#{aid}
+    </delete>
+
+    <update id="updateStateByUid">
+        update address set a_state=0 where u_id=#{uid}
+    </update>
+
+    <update id="updateStateByAid">
+        update address set a_state=1 where a_id=#{aid}
+    </update>
+
+    <select id="selectAddressByUid" resultType="int">
+        select count(*) from address where u_id=#{uid}
+    </select>
+
+    <insert id="addAddress">
+        insert into address(u_id,a_name,a_phone,a_detail,a_state) values(#{uid},#{name},#{phone},#{detail},#{state})
+    </insert>
+
+</mapper>

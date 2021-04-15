@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quchaoqun.order.mapper.OrdersMapper">
+    <resultMap id="orderMap" type="com.quchaoqun.order.domain.Order">
+        <id column="o_id" property="oid"/>
+        <result column="u_id" property="uid"/>
+        <result column="a_id" property="aid"/>
+        <result column="o_count" property="ocount"/>
+        <result column="o_time" property="time"/>
+        <result column="o_state" property="state"/>
+    </resultMap>
+
+    <select id="selectByUid" resultType="com.quchaoqun.order.domain.Orders">
+        select o.o_id as oid,o.u_id as uid,o.a_id as aid,a.a_detail as adetail,o.o_count as ocount,o.o_time as time,o.o_state as state
+        from orders o
+        join address a
+        on o.a_id=a.a_id
+        where o.u_id=#{uid}
+    </select>
+    <select id="selectByOid" resultType="com.quchaoqun.order.domain.Orders">
+        select o.o_id as oid,a.a_detail as adetail,a.a_phone as aphone,a.a_name as aname,o.o_time as time,o.o_count as ocount
+        from orders o
+        join address a
+        on o.a_id=a.a_id
+        where o.o_id=#{oid}
+    </select>
+
+    <insert id="add">
+        insert into orders values (#{oid},#{uid},#{aid},#{ocount},#{time},#{state})
+    </insert>
+
+    <select id="getAllOrder" resultMap="orderMap">
+        select * from orders
+    </select>
+
+</mapper>
